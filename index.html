@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LITHOS | Atlas of Prehistoric Stone Tools, Implements, Artefacts & Art</title>
+  <meta name="description" content="Cross-platform interactive prehistoric stone atlas across Lower, Middle, Upper Paleolithic, Mesolithic and Neolithic. Concept & Design by K.S.Chandra 2026.">
+  <meta name="author" content="K.S.Chandra 2026">
+
+  <!-- Fonts: Cinzel & Inter from Google Fonts with standard system fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Local Offline Vendor Stylesheets -->
+  <link rel="stylesheet" href="assets/lib/leaflet.css">
+
+  <!-- Application Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/map.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Preloader Splash Screen -->
+  <div id="app-preloader">
+    <div class="preloader-emblem-wrap">
+      <svg viewBox="0 0 100 100" class="preloader-handaxe-svg">
+        <defs>
+          <linearGradient id="preGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff" />
+            <stop offset="40%" stop-color="#fbbf24" />
+            <stop offset="80%" stop-color="#f59e0b" />
+            <stop offset="100%" stop-color="#b45309" />
+          </linearGradient>
+          <radialGradient id="preCore" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#38bdf8" />
+            <stop offset="100%" stop-color="#0284c7" />
+          </radialGradient>
+        </defs>
+        <circle cx="50" cy="50" r="44" fill="none" stroke="url(#preGold)" stroke-width="2" stroke-dasharray="8,6" class="preloader-spin-ring"/>
+        <!-- Symmetrical Acheulean Biface Silhouette -->
+        <path d="M 50,14 C 64,28 82,54 76,72 C 70,86 58,88 50,88 C 42,88 30,86 24,72 C 18,54 36,28 50,14 Z" 
+              fill="#111827" stroke="url(#preGold)" stroke-width="2.5"/>
+        <path d="M 50,14 Q 58,35 62,50 Q 50,56 42,42 Z" fill="#fbbf24" opacity="0.35"/>
+        <path d="M 50,14 Q 42,35 38,50 Q 50,56 58,42 Z" fill="#f59e0b" opacity="0.3"/>
+        <circle cx="50" cy="50" r="4" fill="url(#preCore)" class="preloader-core-pulse"/>
+      </svg>
+    </div>
+    <h2 class="preloader-title">L I T H O S</h2>
+    <p class="preloader-sub">Atlas of Prehistoric Stone Tools, Implements, Artefacts &amp; Art</p>
+    <p class="preloader-designer">Concept &amp; Design by K.S.Chandra 2026</p>
+  </div>
+
+  <!-- Global Application Header -->
+  <header class="app-header">
+    <div class="header-top-bar">
+      <div class="brand-block">
+        <div class="lithos-master-logo-emblem" title="LITHOS: Prehistoric Stone Atlas (Concept &amp; Design by K.S.Chandra 2026)">
+          <svg viewBox="0 0 100 100" class="logo-handaxe-svg">
+            <defs>
+              <linearGradient id="logoGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff" />
+                <stop offset="25%" stop-color="#fef08a" />
+                <stop offset="55%" stop-color="#fbbf24" />
+                <stop offset="80%" stop-color="#f59e0b" />
+                <stop offset="100%" stop-color="#b45309" />
+              </linearGradient>
+              <linearGradient id="logoFlintGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8" />
+                <stop offset="35%" stop-color="#0284c7" />
+                <stop offset="100%" stop-color="#090d16" />
+              </linearGradient>
+              <filter id="logoAura" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+            <!-- Glowing Orbit Ring -->
+            <circle cx="50" cy="50" r="44" fill="none" stroke="url(#logoGoldGrad)" stroke-width="1.8" stroke-dasharray="5,4" opacity="0.6" class="logo-orbit-ring"/>
+            <!-- Symmetrical Acheulean Biface Silhouette with Facet Work -->
+            <path d="M 50,13 C 65,27 83,53 77,72 C 71,87 59,89 50,89 C 41,89 29,87 23,72 C 17,53 35,27 50,13 Z" 
+                  fill="url(#logoFlintGrad)" stroke="url(#logoGoldGrad)" stroke-width="2.5" filter="url(#logoAura)"/>
+            <!-- Conchoidal Flaking Facets -->
+            <path d="M 50,13 Q 58,35 62,50 Q 50,56 42,42 Z" fill="#38bdf8" opacity="0.4"/>
+            <path d="M 62,50 Q 73,65 66,78 Q 54,74 50,62 Z" fill="#fbbf24" opacity="0.35"/>
+            <path d="M 50,13 Q 42,35 38,50 Q 50,56 58,42 Z" fill="#f59e0b" opacity="0.3"/>
+            <path d="M 38,50 Q 27,65 34,78 Q 46,74 50,62 Z" fill="#38bdf8" opacity="0.35"/>
+            <!-- Central Spark of Prehistoric Fire & Innovation -->
+            <circle cx="50" cy="50" r="3.5" fill="#ffffff" filter="url(#logoAura)"/>
+          </svg>
+        </div>
+        <div class="brand-text-col">
+          <div class="brand-title-row">
+            <h1 class="lithos-brand-title">L I T H O S</h1>
+            <span class="atlas-jewel-badge">ATLAS</span>
+          </div>
+          <p class="brand-subline">Atlas of Prehistoric Stone Tools, Implements, Artefacts &amp; Art &bull; <span class="designer-badge">Concept &amp; Design by K.S.Chandra 2026</span></p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Global Search Bar -->
+        <div class="global-search-wrapper">
+          <span class="search-icon-symbol">🔍</span>
+          <input type="text" id="global-search-input" placeholder="Search tools, materials, sites..." autocomplete="off">
+        </div>
+
+        <!-- Audio Sound Effects Toggle -->
+        <button id="audio-toggle-btn" class="audio-btn" onclick="window.lithosAudio.toggleMute()" title="Toggle flint-knapping sound effects">
+          🔇 Audio Off
+        </button>
+      </div>
+    </div>
+
+    <!-- Navigation Tab Strip -->
+    <nav class="nav-tab-strip">
+      <a href="#map" class="nav-tab-item active-nav" data-tab="map">🗺️ World Atlas</a>
+      <a href="#timeline" class="nav-tab-item" data-tab="timeline">⏳ Deep Time Scale</a>
+      <a href="#artefacts" class="nav-tab-item" data-tab="artefacts">🪨 Artefact Catalog</a>
+      <a href="#species" class="nav-tab-item" data-tab="species">🧬 Human Taxa</a>
+      <a href="#charts" class="nav-tab-item" data-tab="charts">📊 Archaeometrics</a>
+      <a href="#comparative" class="nav-tab-item" data-tab="comparative">⚖️ Comparative Lab</a>
+      <a href="#excavator" class="nav-tab-item" data-tab="excavator">⛏️ Stratigraphic Trench</a>
+      <a href="#glossary" class="nav-tab-item" data-tab="glossary">📚 Lithic Guide & Glossary</a>
+      <a href="#citations" class="nav-tab-item" data-tab="citations">📜 Citations & Credits</a>
+    </nav>
+  </header>
+
+  <!-- Main View Container -->
+  <main class="app-main-layout">
+
+    <!-- 1. WORLD ATLAS VIEW -->
+    <section id="view-map" class="atlas-view-panel active-view">
+      <div class="view-header-strip">
+        <div class="view-titles">
+          <h2>Prehistoric World Archaeological Atlas</h2>
+          <p>Explore documented tool discoveries, implements, and mobiliary art mapped across the continents.</p>
+        </div>
+
+        <div class="filter-action-strip">
+          <!-- Continent Jump Buttons -->
+          <div class="continent-jump-group">
+            <button class="continent-jump-btn active-cont" data-continent="global">Global</button>
+            <button class="continent-jump-btn" data-continent="india">🇮🇳 India & S. Asia</button>
+            <button class="continent-jump-btn" data-continent="asia">🌏 Asia & Siberia</button>
+            <button class="continent-jump-btn" data-continent="africa">🌍 Africa</button>
+            <button class="continent-jump-btn" data-continent="europe">🌍 Europe</button>
+            <button class="continent-jump-btn" data-continent="neareast">🏜️ Near East</button>
+          </div>
+
+          <!-- Epoch Filter Buttons -->
+          <div class="epoch-pill-group">
+            <button class="epoch-filter-btn active-filter" data-epoch="all">All Epochs</button>
+            <button class="epoch-filter-btn" data-epoch="lower_paleolithic">Lower Paleo</button>
+            <button class="epoch-filter-btn" data-epoch="middle_paleolithic">Middle Paleo</button>
+            <button class="epoch-filter-btn" data-epoch="upper_paleolithic">Upper Paleo</button>
+            <button class="epoch-filter-btn" data-epoch="mesolithic">Mesolithic</button>
+            <button class="epoch-filter-btn" data-epoch="neolithic">Neolithic</button>
+          </div>
+
+          <!-- Prehistoric Caves & Rock Art Filter Toggle -->
+          <button id="map-cave-filter-toggle" class="cave-toggle-btn" title="Toggle Prehistoric Caves, Rock Shelters & Parietal Art">
+            🏛️ Caves & Rock Art Only
+          </button>
+
+          <!-- Material Filter Select -->
+          <select id="material-filter-select" class="select-filter-dropdown">
+            <option value="all">All Raw Materials</option>
+            <option value="flint">Flint & Chert</option>
+            <option value="obsidian">Volcanic Obsidian</option>
+            <option value="basalt">Basalt & Lavas</option>
+            <option value="quartzite">Quartzite & Sandstone</option>
+            <option value="bone">Bone, Antler & Ivory</option>
+            <option value="jadeite">Jadeite & Chlorite</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Leaflet Interactive Map Container -->
+      <div class="atlas-map-container-wrap">
+        <div id="atlas-leaflet-map"></div>
+      </div>
+    </section>
+
+    <!-- 2. CHRONOLOGICAL DEEP TIME SCALE VIEW -->
+    <section id="view-timeline" class="atlas-view-panel">
+      <div class="view-header-strip">
+        <div class="view-titles">
+          <h2>Chronological Deep-Time Scale & Paleoclimates</h2>
+          <p>Scrub through 3.5 Million Years of human tool development, glacial epochs, and hominin coexistence.</p>
+        </div>
+      </div>
+      <div id="timeline-canvas-container"></div>
+    </section>
+
+    <!-- 3. ARTEFACT CATALOG VIEW -->
+    <section id="view-artefacts" class="atlas-view-panel">
+      <div class="view-header-strip">
+        <div class="view-titles">
+          <h2>Comprehensive Artefact, Implement & Rock Art Catalog</h2>
+          <p>Detailed petrological, morphometric, high-resolution photographic and cave archaeological documentation.</p>
+        </div>
+        <div id="filtered-results-count" class="site-count-badge">37 Artefacts Catalogued</div>
+      </div>
+
+      <!-- Quick Category & Region Filter Strip for Artefacts Catalog -->
+      <div class="artefact-catalog-filter-bar">
+        <div class="category-pill-group">
+          <button class="cat-filter-btn active-cat" data-category="all">All Specimens & Art</button>
+          <button class="cat-filter-btn cave-special-pill" data-category="caves">🏛️ Prehistoric Caves & Rock Art</button>
+          <button class="cat-filter-btn" data-category="tools">🪨 Stone Implements & Tools</button>
+        </div>
+        <div class="region-pill-group">
+          <button class="region-filter-btn active-region" data-region="all">All Regions</button>
+          <button class="region-filter-btn" data-region="asia_india">🌏 Asia & Indian Subcontinent</button>
+          <button class="region-filter-btn" data-region="africa">🌍 Africa</button>
+          <button class="region-filter-btn" data-region="europe">🌍 Europe</button>
+          <button class="region-filter-btn" data-region="neareast">🏜️ Near East</button>
+        </div>
+      </div>
+
+      <div id="artefacts-cards-container" class="artefacts-grid-layout"></div>
+    </section>
+
+    <!-- 4. HUMAN SPECIES EVOLUTIONARY DOSSIER VIEW -->
+    <section id="view-species" class="atlas-view-panel">
+      <div class="view-header-strip">
+        <div class="view-titles">
+          <h2>Hominin Taxa & Evolutionary Co-Development</h2>
+          <p>Anatomical specializations, cranial capacities, speech genetics, and associated stone tool industries.</p>
+        </div>
+      </div>
+      <div id="species-cards-container" class="species-grid-layout"></div>
+    </section>
+
+    <!-- 5. ARCHAEOMETRIC CHARTS & GRAPHS SUITE -->
+    <section id="view-charts" class="atlas-view-panel">
+      <div class="view-header-strip">
+        <div class="view-titles">
+          <h2>Archaeometric Analytics & Quantitative Charts</h2>
+          <p>Interactive visualizations of cutting edge yields, brain size co-development, and raw material selection.</p>
+        </div>
+      </div>
+      <div class="charts-grid-layout">
+        <div class="chart-card-box">
+          <div class="chart-card-head">
+            <h4>Cutting Edge Efficiency Yield (cm / kg)</h4>
+            <p>Clark's metric showing the exponential increase in usable cutting margin from Mode 1 to Mode 5.</p>
+          </div>
+          <div class="chart-canvas-wrap">
+            <canvas id="chart-cutting-edge"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card-box">
+          <div class="chart-card-head">
+            <h4>Cranial Capacity (cc) vs. Lithic Technological Mode</h4>
+            <p>Evolutionary correlation between hominin brain expansion and complex tool preparation.</p>
+          </div>
+          <div class="chart-canvas-wrap">
+            <canvas id="chart-cranial-vs-mode"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card-box">
+          <div class="chart-card-head">
+            <h4>Global Lithic Raw Material Selection Distribution</h4>
+            <p>Petrological breakdown of primary rock and organic media utilized across prehistory.</p>
+          </div>
+          <div class="chart-canvas-wrap">
+            <canvas id="chart-material-dist"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card-box">
+          <div class="chart-card-head">
+            <h4>Comparative Morphometric Radar</h4>
+            <p>Direct dimensional analysis: Length, Width, Thickness, Weight, and Cutting Edge.</p>
+          </div>
+          <div class="chart-canvas-wrap">
+            <canvas id="chart-morphometrics"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card-box chart-full-width">
+          <div class="chart-card-head">
+            <h4>Documented Archaeological Sites by Continent & Epoch</h4>
+            <p>Geographical distribution tracing the out-of-Africa migrations and Eurasian expansion.</p>
+          </div>
+          <div class="chart-canvas-wrap">
+            <canvas id="chart-continent-density"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. COMPARATIVE ANALYSIS LAB -->
+    <section id="view-comparative" class="atlas-view-panel">
+      <div id="comparative-container"></div>
+    </section>
+
+    <!-- 7. STRATIGRAPHIC TRENCH SIMULATOR -->
+    <section id="view-excavator" class="atlas-view-panel">
+      <div id="excavator-container"></div>
+    </section>
+
+    <!-- 8. LITHIC GUIDE & GLOSSARY -->
+    <section id="view-glossary" class="atlas-view-panel">
+      <div class="view-header-strip">
+        <div class="view-titles">
+          <h2>Lithic Technology Guide & Archaeological Glossary</h2>
+          <p>Scientific principles of conchoidal fracture mechanics, Chaîne Opératoire, and Clark's Modes 1–5.</p>
+        </div>
+      </div>
+      <div class="glossary-guide-wrapper">
+        <div>
+          <h3 style="color: #f59e0b; margin-bottom: 14px; font-family: var(--font-serif);">Grahame Clark's 5 Technological Modes (1969)</h3>
+          <div id="modes-guide-container" class="modes-guide-grid"></div>
+        </div>
+
+        <div>
+          <h3 style="color: #38bdf8; margin-bottom: 14px; font-family: var(--font-serif);">Physics of Conchoidal Fracture Mechanics & Features</h3>
+          <div id="conchoidal-mechanics-container" class="conchoidal-mechanics-grid"></div>
+        </div>
+
+        <div>
+          <h3 style="color: #cbd5e1; margin-bottom: 14px; font-family: var(--font-serif);">Comprehensive Prehistoric Lithic Glossary</h3>
+          <div id="glossary-terms-container" class="glossary-terms-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. CITATIONS & ACKNOWLEDGMENTS -->
+    <section id="view-citations" class="atlas-view-panel">
+      <div id="citations-content-container"></div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Artefact Inspector & Physical Measurements Modal -->
+  <div id="artefact-inspector-modal" class="modal-wrapper hidden"></div>
+
+  <!-- Human Species Detail Modal -->
+  <div id="species-detail-modal" class="modal-wrapper hidden"></div>
+
+  <!-- Application Footer -->
+  <footer class="app-footer">
+    <p><strong>LITHOS: Interactive Prehistoric Stone Atlas</strong> &bull; Cross-Platform Standalone & Web Deployable</p>
+    <p>Concept & Design by <strong>K.S.Chandra 2026</strong> &bull; All archaeological citations and museum repositories acknowledged.</p>
+  </footer>
+
+  <!-- Local Offline Vendor Libraries -->
+  <script src="assets/lib/leaflet.js"></script>
+  <script src="assets/lib/chart.umd.min.js"></script>
+
+  <!-- Application Modules -->
+  <script src="js/data.js"></script>
+  <script src="js/species.js"></script>
+  <script src="js/glossary.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/inspector.js"></script>
+  <script src="js/comparative.js"></script>
+  <script src="js/excavator.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

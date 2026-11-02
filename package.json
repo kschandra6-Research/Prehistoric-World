@@ -1,0 +1,27 @@
+{
+  "name": "prehistoric-stone-atlas",
+  "version": "1.0.0",
+  "description": "LITHOS - Cross-Platform Interactive Atlas of Prehistoric Stone Tools, Implements, Artefacts & Art across Lower, Middle, Upper Paleolithic, Mesolithic and Neolithic. Concept & Design by K.S.Chandra 2026.",
+  "main": "index.html",
+  "scripts": {
+    "start": "python launcher.py",
+    "serve": "npx serve -l 8080 .",
+    "dev": "python -m http.server 8080"
+  },
+  "keywords": [
+    "archaeology",
+    "prehistory",
+    "paleolithic",
+    "mesolithic",
+    "neolithic",
+    "stone-tools",
+    "acheulean",
+    "oldowan",
+    "mousterian",
+    "human-evolution",
+    "atlas",
+    "interactive-map"
+  ],
+  "author": "Concept & Design by K.S.Chandra 2026",
+  "license": "CC-BY-4.0"
+}

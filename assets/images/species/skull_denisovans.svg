@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="60%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <radialGradient id="boneLight" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#f5e6d3"/>
+      <stop offset="45%" stop-color="#d4ba96"/>
+      <stop offset="85%" stop-color="#9a7b54"/>
+      <stop offset="100%" stop-color="#5a4125"/>
+    </radialGradient>
+    <filter id="fossilShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle Scientific Grid -->
+  <g stroke="#1e293b" stroke-width="0.8" opacity="0.3">
+    <line x1="100" y1="0" x2="100" y2="600"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="500" y1="0" x2="500" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+    <line x1="700" y1="0" x2="700" y2="600"/>
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+  </g>
+
+  <!-- Fossil Pedestal Vitrine -->
+  <ellipse cx="400" cy="500" rx="220" ry="26" fill="#0b1120" stroke="#334155" stroke-width="1.5"/>
+  <ellipse cx="400" cy="497" rx="205" ry="20" fill="#030712"/>
+
+  <!-- Cranial Specimen Group -->
+  <g transform="translate(400, 270)" filter="url(#fossilShadow)">
+    <!-- Shadow cast -->
+    <ellipse cx="10" cy="220" rx="140" ry="22" fill="#000000" opacity="0.7"/>
+
+    <!-- Cranial Vault (Neurocranium) -->
+    <ellipse cx="0" cy="-60" rx="140" ry="110" fill="url(#boneLight)" stroke="#5d411e" stroke-width="2.5"/>
+
+    <!-- Occipital Bun / Torus protrusion -->
+    <path d="M -115,-40 C -150,-50 -155,-10 -110,10 Z" fill="url(#boneLight)" stroke="#5d411e" stroke-width="2"/>
+
+    <!-- Zygomatic Arch & Cheekbone -->
+    <path d="M 40,-10 C 95,-10 115,20 100,50 C 70,55 50,30 35,20 Z" fill="url(#boneLight)" stroke="#5d411e" stroke-width="2"/>
+
+    <!-- Eye Orbits (Periorbital Cavities) -->
+    <rect x="-70" y="-15" width="45" height="42" rx="12" fill="#0f172a" stroke="#452f14" stroke-width="2.5"/>
+    <rect x="25" y="-15" width="45" height="42" rx="12" fill="#0f172a" stroke="#452f14" stroke-width="2.5"/>
+
+    <!-- Supraorbital Torus (Heavy Browridge) -->
+    <path d="M -85,-20 Q -45,-38 -5,-22 Q 45,-38 85,-20" fill="none" stroke="#684a22" stroke-width="14" stroke-linecap="round"/>
+
+    <!-- Nasal Aperture (Pyriform Cavity) -->
+    <path d="M 0,-8 L -14,35 L 0,42 L 14,35 Z" fill="#020617" stroke="#452f14" stroke-width="2"/>
+
+    <!-- Maxilla (Upper Jaw & Palate) -->
+    <path d="M -45,40 C -40,85 -20,95 0,95 C 20,95 40,85 45,40 Z" fill="url(#boneLight)" stroke="#5d411e" stroke-width="2"/>
+
+    <!-- Upper Dentition (Teeth) -->
+    <g fill="#f8fafc" stroke="#443015" stroke-width="1.2">
+      <rect x="-38" y="85" width="7" height="13" rx="2"/>
+      <rect x="-29" y="86" width="7" height="14" rx="2"/>
+      <rect x="-20" y="87" width="8" height="15" rx="2"/>
+      <rect x="-10" y="88" width="9" height="16" rx="2"/>
+      <rect x="1" y="88" width="9" height="16" rx="2"/>
+      <rect x="12" y="87" width="8" height="15" rx="2"/>
+      <rect x="22" y="86" width="7" height="14" rx="2"/>
+      <rect x="31" y="85" width="7" height="13" rx="2"/>
+    </g>
+
+    <!-- Mandible (Lower Jaw) -->
+    <path d="M -75,55 C -70,110 -50,145 -30,155 C 0,162 0,162 30,155 C 50,145 70,110 75,55 L 55,58 C 45,120 25,135 0,135 C -25,135 -45,120 -55,58 Z" 
+          fill="#d8ba88" stroke="#5d411e" stroke-width="2"/>
+    
+    <!-- Lower Dentition -->
+    <g fill="#f8fafc" stroke="#443015" stroke-width="1.2">
+      <rect x="-30" y="102" width="6" height="13" rx="2"/>
+      <rect x="-22" y="103" width="7" height="14" rx="2"/>
+      <rect x="-13" y="104" width="7" height="15" rx="2"/>
+      <rect x="-4" y="104" width="8" height="15" rx="2"/>
+      <rect x="6" y="104" width="7" height="15" rx="2"/>
+      <rect x="15" y="103" width="7" height="14" rx="2"/>
+      <rect x="24" y="102" width="6" height="13" rx="2"/>
+    </g>
+
+    <!-- Cranial Sutures -->
+    <path d="M -90,-95 Q -60,-120 -10,-125 Q 40,-130 90,-90" fill="none" stroke="#684a22" stroke-width="1.2" stroke-dasharray="2,3" opacity="0.75"/>
+    <path d="M 0,-165 Q 0,-120 0,-70" fill="none" stroke="#684a22" stroke-width="1.2" stroke-dasharray="3,2" opacity="0.75"/>
+  </g>
+
+  <!-- HUD Badges -->
+  <g transform="translate(40, 45)">
+    <rect x="0" y="0" width="320" height="65" rx="8" fill="rgba(15, 23, 42, 0.9)" stroke="#334155" stroke-width="1.2"/>
+    <text x="16" y="24" fill="#f59e0b" font-size="10" font-family="'Inter', sans-serif" font-weight="700" letter-spacing="1">PALEOANTHROPOLOGICAL CRANIAL SPECIMEN</text>
+    <text x="16" y="44" fill="#ffffff" font-size="16" font-family="'Cinzel', serif" font-weight="700" font-style="italic">Denisovans (Homo sp. Altai/Xiahe)</text>
+    <text x="16" y="58" fill="#94a3b8" font-size="10" font-family="'Inter', sans-serif">Fossil: Xiahe Mandible (Baishiya) &amp; Denisova 4/8</text>
+  </g>
+
+  <g transform="translate(560, 45)">
+    <rect x="0" y="0" width="200" height="65" rx="8" fill="rgba(15, 23, 42, 0.9)" stroke="#38bdf8" stroke-width="1.2"/>
+    <text x="16" y="22" fill="#38bdf8" font-size="10" font-family="'Inter', sans-serif" font-weight="700" letter-spacing="1">ENDOCRANIAL VOLUME</text>
+    <text x="16" y="48" fill="#ffffff" font-size="20" font-family="'Inter', sans-serif" font-weight="800">1500 cc</text>
+    <text x="16" y="59" fill="#64748b" font-size="9" font-family="'Inter', sans-serif">AGE: 300 – 30 ka</text>
+  </g>
+
+  <!-- Scale Bar -->
+  <g transform="translate(620, 490)">
+    <line x1="0" y1="10" x2="120" y2="10" stroke="#f59e0b" stroke-width="2.5"/>
+    <line x1="0" y1="3" x2="0" y2="17" stroke="#f59e0b" stroke-width="2.5"/>
+    <line x1="60" y1="6" x2="60" y2="14" stroke="#f59e0b" stroke-width="1.5"/>
+    <line x1="120" y1="3" x2="120" y2="17" stroke="#f59e0b" stroke-width="2.5"/>
+    <text x="60" y="30" fill="#cbd5e1" font-size="10" font-family="'Inter', monospace" text-anchor="middle" font-weight="600">SCALE: 10 cm</text>
+  </g>
+
+  <!-- Footer Watermark -->
+  <text x="40" y="565" fill="#475569" font-size="10" font-family="'Inter', sans-serif">
+    LITHOS Atlas &#8226; Anthropological Cranial Archive &#8226; Concept &amp; Design by K.S.Chandra 2026
+  </text>
+</svg>

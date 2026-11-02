@@ -1,0 +1,275 @@
+/**
+ * LITHOS - Prehistoric Stone Atlas
+ * Interactive Map & Vector SVG Fallback Styles
+ * Concept & Design by K.S.Chandra 2026
+ */
+
+.atlas-map-container-wrap {
+  position: relative;
+  width: 100%;
+  height: 640px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: #090d16;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+#atlas-leaflet-map {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Custom Leaflet Dark Marker Pin */
+.custom-leaflet-marker {
+  background: transparent;
+  border: none;
+}
+
+.atlas-marker-pin {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.marker-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--marker-color, #f59e0b);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 10px var(--marker-color, #f59e0b);
+  z-index: 2;
+  transition: transform 0.2s ease;
+}
+
+.atlas-marker-pin:hover .marker-dot {
+  transform: scale(1.3);
+}
+
+.marker-pulse {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: var(--marker-color, #f59e0b);
+  opacity: 0.4;
+  animation: markerPulse 2s infinite ease-out;
+  z-index: 1;
+}
+
+@keyframes markerPulse {
+  0% { transform: scale(0.5); opacity: 0.8; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* Custom Dark Leaflet Popup */
+.lithos-leaflet-popup .leaflet-popup-content-wrapper {
+  background: #111827;
+  color: #f1f5f9;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.7);
+  padding: 0;
+  overflow: hidden;
+  max-height: 75vh;
+}
+
+.lithos-leaflet-popup .leaflet-popup-content {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.lithos-leaflet-popup .leaflet-popup-tip {
+  background: #111827;
+  border: 1px solid var(--border-subtle);
+}
+
+.atlas-popup-card {
+  padding: 16px;
+  min-width: 260px;
+  max-width: 320px;
+  max-height: 70vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.popup-header {
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.popup-epoch {
+  display: block;
+  font-size: 0.72rem;
+  color: #f59e0b;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.popup-cave-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  background: rgba(147, 51, 234, 0.25);
+  border: 1px solid #a855f7;
+  color: #d8b4fe;
+  padding: 1px 7px;
+  border-radius: 8px;
+  margin-top: 3px;
+  font-weight: 600;
+}
+
+.popup-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: #ffffff;
+  margin-top: 4px;
+}
+
+.popup-body {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  margin-bottom: 14px;
+}
+
+.popup-detail {
+  margin-bottom: 4px;
+}
+
+.popup-inspect-btn {
+  width: 100%;
+  background: #0284c7;
+  border: none;
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.popup-inspect-btn:hover {
+  background: #0369a1;
+}
+
+/* Cave marker pin styling */
+.atlas-marker-pin.cave-pin .marker-dot {
+  border: 2px solid #c084fc;
+  box-shadow: 0 0 12px #a855f7;
+}
+
+.atlas-marker-pin.cave-pin::after {
+  content: '🏛️';
+  position: absolute;
+  top: -14px;
+  left: 3px;
+  font-size: 10px;
+  pointer-events: none;
+}
+
+/* Map Cave Filter Toggle Button */
+.cave-toggle-btn {
+  background: #1e1b4b;
+  border: 1px solid #7c3aed;
+  color: #c4b5fd;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.cave-toggle-btn:hover,
+.cave-toggle-btn.active-cave-toggle {
+  background: #6d28d9;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(124, 58, 237, 0.5);
+  border-color: #a78bfa;
+}
+
+/* Vector SVG Fallback Map */
+.vector-world-map-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #090d16;
+}
+
+.vector-map-header {
+  padding: 12px 18px;
+  background: #111827;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+.site-count-badge {
+  background: #1e293b;
+  border: 1px solid #0284c7;
+  color: #38bdf8;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+}
+
+.vector-world-svg {
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.svg-pulse {
+  animation: svgMarkerPulse 2.5s infinite ease-out;
+}
+
+@keyframes svgMarkerPulse {
+  0% { transform: scale(0.6); opacity: 0.7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Custom Leaflet Layer Switcher Control */
+.leaflet-control-layers {
+  background: rgba(17, 24, 39, 0.92) !important;
+  color: #f1f5f9 !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(8px);
+}
+
+.leaflet-control-layers-expanded {
+  padding: 10px 14px !important;
+}
+
+.leaflet-control-layers-base label {
+  font-size: 0.8rem;
+  color: #cbd5e1 !important;
+  cursor: pointer;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.leaflet-control-layers-base label:hover {
+  color: #38bdf8 !important;
+}
+
+.leaflet-control-layers-base input[type="radio"] {
+  accent-color: #f59e0b;
+}

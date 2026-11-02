@@ -1,0 +1,49 @@
+/**
+ * LITHOS - Prehistoric Stone Atlas
+ * Smooth Micro-Animations, Transitions & Glow Effects
+ * Concept & Design by K.S.Chandra 2026
+ */
+
+/* Glowing Focus */
+.glow-gold {
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+}
+
+.glow-azure {
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+}
+
+/* Micro interaction bounce */
+button:active {
+  transform: scale(0.97);
+}
+
+/* Modal open transition */
+.modal-active {
+  animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Smooth tooltips */
+[title] {
+  position: relative;
+}
+
+/* Flake ripple shimmer */
+@keyframes rippleShimmer {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 20; }
+}
+
+.shimmering-ridge {
+  stroke-dasharray: 4, 4;
+  animation: rippleShimmer 3s linear infinite;
+}

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <radialGradient id="spotlight" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#059669" stop-opacity="0.16"/>
+      <stop offset="60%" stop-color="#0f172a" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="stoneGrad" x1="15%" y1="15%" x2="85%" y2="85%">
+      <stop offset="0%" stop-color="#d9a86c"/>
+      <stop offset="30%" stop-color="#b58249"/>
+      <stop offset="70%" stop-color="#7c5328"/>
+      <stop offset="100%" stop-color="#452a11"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  <rect width="800" height="600" fill="url(#spotlight)"/>
+
+  <ellipse cx="400" cy="460" rx="200" ry="25" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <ellipse cx="400" cy="458" rx="190" ry="20" fill="#0f172a"/>
+
+  
+        <g transform="translate(400, 275)">
+          <ellipse cx="0" cy="155" rx="80" ry="18" fill="#030712" opacity="0.6"/>
+          <path d="M 0,-170 L 80,100 C 60,155 -60,155 -80,100 Z" 
+                fill="url(#stoneGrad)" stroke="#523918" stroke-width="2.5"/>
+          <path d="M 0,-170 L 30,-70 L 60,20 L 75,90" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.7"/>
+          <path d="M 0,-170 L -30,-70 L -60,20 L -75,90" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.7"/>
+          <path d="M -40,110 Q 0,135 40,110" fill="none" stroke="#451a03" stroke-width="2"/>
+        </g>
+        
+
+  <g transform="translate(40, 40)">
+    <rect x="0" y="0" width="340" height="68" rx="8" fill="rgba(15, 23, 42, 0.9)" stroke="#059669" stroke-width="1.2"/>
+    <text x="16" y="24" fill="#059669" font-size="10" font-family="'Inter', sans-serif" font-weight="700" letter-spacing="1">ARCHAEOLOGICAL REFERENCE SPECIMEN</text>
+    <text x="16" y="44" fill="#ffffff" font-size="15" font-family="'Cinzel', serif" font-weight="700">Bhimbetka Mesolithic Cave Pa...</text>
+    <text x="16" y="59" fill="#94a3b8" font-size="11" font-family="'Inter', sans-serif">Locality: Madhya Pradesh, India &#8226; Age: 10,000 BCE</text>
+  </g>
+
+  <g transform="translate(630, 480)">
+    <line x1="0" y1="10" x2="110" y2="10" stroke="#f59e0b" stroke-width="2.5"/>
+    <line x1="0" y1="3" x2="0" y2="17" stroke="#f59e0b" stroke-width="2.5"/>
+    <line x1="55" y1="6" x2="55" y2="14" stroke="#f59e0b" stroke-width="1.5"/>
+    <line x1="110" y1="3" x2="110" y2="17" stroke="#f59e0b" stroke-width="2.5"/>
+    <text x="55" y="30" fill="#cbd5e1" font-size="10" font-family="'Inter', monospace" text-anchor="middle" font-weight="600">SCALE: 10 cm</text>
+  </g>
+
+  <text x="40" y="565" fill="#475569" font-size="10" font-family="'Inter', sans-serif">
+    LITHOS: Prehistoric Stone Atlas &#8226; Concept &amp; Design by K.S.Chandra 2026
+  </text>
+</svg>
